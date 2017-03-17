@@ -4,9 +4,10 @@
 #include "stdafx.h"
 #include <Windows.h>
 #include <string>
+#include <vector>
 
 
-bool ToggleWindowTopMost(HWND h)
+void ToggleWindowTopMost(HWND h)
 {
     auto style = GetWindowLong(h, GWL_EXSTYLE);
     bool wasSet = (style & WS_EX_TOPMOST) == WS_EX_TOPMOST;
@@ -21,24 +22,28 @@ bool ToggleWindowTopMost(HWND h)
     auto styleAfter = GetWindowLong(h, GWL_EXSTYLE);
     bool isSet = (styleAfter & WS_EX_TOPMOST) == WS_EX_TOPMOST;
 
-    return wasSet != isSet;
+    printf("window top most property switching result: %s\n", wasSet != isSet ? "true" : "false");
+    
 }
 
+std::vector<HWND> candidates;
 
 BOOL CALLBACK EnumWindowProc(HWND h, LPARAM p)
 {
+    if (h == GetConsoleWindow()) return TRUE;
     char* pattern = reinterpret_cast<char*>(p);
     char title[1024] = {};
     GetWindowTextA(h, title, 1024);
     if (strstr(title, pattern) != nullptr)
     {
         printf("\t0x%08x\t%s\n", h, title);
+        candidates.push_back(h);
     }
     return TRUE;
 }
 
 int main(int argc, char** argv)
-{
+{    
     if (argc == 2)
     {
         int h = 0;
@@ -49,8 +54,7 @@ int main(int argc, char** argv)
             HWND handle = reinterpret_cast<HWND>(h);
             if (IsWindow(handle))
             {
-                auto result = ToggleWindowTopMost(handle);
-                printf("window top most property switching result: %s\n", result ? "true" : "false");
+                ToggleWindowTopMost(handle);
                 return 0;
             }
         }
@@ -61,7 +65,12 @@ int main(int argc, char** argv)
         // try to search the window that match the string.
 
         printf("Listing all windows that title matches %s\n", argv[1]);
+        candidates.clear();
         EnumWindows(EnumWindowProc, reinterpret_cast<LPARAM>(argv[1]));
+        if (candidates.size() == 1)
+        {
+            ToggleWindowTopMost(candidates[0]);
+        }
         return 0;
         
     }
