@@ -35,8 +35,25 @@ public:
 		Node* left, *right, *parent;
 		int val;
 		Color color;
-		int x, y;
-		double offsetX, offsetY;
+		int x, y;  // vertical and horizontal index.
+		double offsetX, offsetY;  // vertical and horizontal offset (scaled)
+
+		Node* Clone()
+		{
+			Node* node = new Node(val);
+			node->color = color;
+			if (left)
+			{
+				node->left = left->Clone();
+				node->left->parent = node;
+			}
+			if (right)
+			{
+				node->right = right->Clone();
+				node->right->parent = node;
+			}
+			return node;
+		}
 	};
 
 	RBTree()
@@ -84,6 +101,14 @@ private:
 	//		return grandParent->right;
 	//	return grandParent->left;
 	//}
+
+	void TakeSnapShot()
+	{
+		if (DumpFn)
+		{
+			DumpFn(root);
+		}
+	}
 
 	Node* Sibling(Node* node)
 	{
@@ -148,6 +173,8 @@ private:
 
 	void UpdateColor(Node* node)
 	{
+		TakeSnapShot();
+
 		if (node->color == Color::Red)
 		{
 			if (!node->parent)
@@ -212,10 +239,6 @@ private:
 			}
 		}
 
-		if (DumpFn)
-		{
-			DumpFn(root);
-		}
 	}
 
 	void Insert(Node* parent, Node* newNode)

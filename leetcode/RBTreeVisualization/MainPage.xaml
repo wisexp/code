@@ -7,7 +7,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="gd">
-        <Canvas x:Name="cv"/>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button Content="Prev" x:Name="prev" Click="prev_Click"/>
+            <Button Content="Next" x:Name="next" Click="next_Click"/>
+        </StackPanel>
+        <Grid Grid.Row="1" x:Name="gd">
+            <Canvas x:Name="cv"/>
+        </Grid>
     </Grid>
 </Page>

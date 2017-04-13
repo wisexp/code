@@ -7,8 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:ConnectionId='1' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="gd">
-        <Canvas x:ConnectionId='2' x:Name="cv"/>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button x:ConnectionId='3' Content="Prev" x:Name="prev"                   />
+            <Button x:ConnectionId='4' Content="Next" x:Name="next"                   />
+        </StackPanel>
+        <Grid x:ConnectionId='1' Grid.Row="1" x:Name="gd">
+            <Canvas x:ConnectionId='2' x:Name="cv"/>
+        </Grid>
     </Grid>
 </Page>
 

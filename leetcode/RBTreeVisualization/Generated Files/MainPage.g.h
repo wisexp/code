@@ -13,6 +13,7 @@ namespace Windows {
             namespace Controls {
                 ref class Grid;
                 ref class Canvas;
+                ref class Button;
             }
         }
     }
@@ -35,6 +36,8 @@ namespace RBTreeVisualization
     
         private: ::Windows::UI::Xaml::Controls::Grid^ gd;
         private: ::Windows::UI::Xaml::Controls::Canvas^ cv;
+        private: ::Windows::UI::Xaml::Controls::Button^ prev;
+        private: ::Windows::UI::Xaml::Controls::Button^ next;
     };
 }
 

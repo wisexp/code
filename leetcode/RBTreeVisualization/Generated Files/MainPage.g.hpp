@@ -37,6 +37,20 @@ void ::RBTreeVisualization::MainPage::Connect(int __connectionId, ::Platform::Ob
                 this->cv = safe_cast<::Windows::UI::Xaml::Controls::Canvas^>(__target);
             }
             break;
+        case 3:
+            {
+                this->prev = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
+                (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->prev))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::RBTreeVisualization::MainPage::*)
+                    (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::prev_Click);
+            }
+            break;
+        case 4:
+            {
+                this->next = safe_cast<::Windows::UI::Xaml::Controls::Button^>(__target);
+                (safe_cast<::Windows::UI::Xaml::Controls::Button^>(this->next))->Click += ref new ::Windows::UI::Xaml::RoutedEventHandler(this, (void (::RBTreeVisualization::MainPage::*)
+                    (::Platform::Object^, ::Windows::UI::Xaml::RoutedEventArgs^))&MainPage::next_Click);
+            }
+            break;
     }
     _contentLoaded = true;
 }

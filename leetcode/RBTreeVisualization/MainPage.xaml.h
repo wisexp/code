@@ -7,6 +7,7 @@
 
 #include "MainPage.g.h"
 #include "RBTree.h"
+#include <vector>
 namespace RBTreeVisualization
 {
 
@@ -18,7 +19,15 @@ namespace RBTreeVisualization
 	public:
 		MainPage();
 	private:
-		void DumpTree(RBTree::Node* root);
+		void DrawRBTree(RBTree::Node* root);
+		void DrawRBTree();
+
 		void OnLoaded(Platform::Object ^sender, Windows::UI::Xaml::RoutedEventArgs ^e);
+
+		void prev_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void next_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+
+		std::vector<RBTree::Node*> snapshots;
+		int snapshotIndex = 0;
 	};
 }
