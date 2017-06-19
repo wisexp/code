@@ -32,9 +32,18 @@ namespace
 	{
 		int dx = p1.first - p2.first;
 		int dy = p1.second - p2.second;
-		return sqrt(dx*dx + dy*dy);
+		double ret = sqrt(static_cast<double>(dx*dx + dy*dy));
+		return ret;
 	}
 };
+
+void AStarSearch::TakeSnapShot(SnapShotFunc snapshot)
+{
+	if (snapshot)
+	{
+		snapshot(closedCells, openCells, current);
+	}
+}
 
 Node* AStarSearch::GetNode(Position pos, Position end)
 {
@@ -43,30 +52,22 @@ Node* AStarSearch::GetNode(Position pos, Position end)
 		return &it->second;
 	Node node{};
 	node.pos = pos;
-	node.heuristicCost = Distance(pos, end);
+	node.heuristicCost = Distance(pos, end) * 1.1;
 	node.moveCost = numeric_limits<double>::max();
+	node.kind = CellKind::Unknown;
 	nodes[pos] = node;
 	return &nodes[pos];
 }
 
-struct NodeCompare
-{
-	bool operator()(const Node* left, const Node* right) const
-	{
-		return left->heuristicCost + left->moveCost < right->heuristicCost + right->moveCost;
-	}
-};
-
-vector<Position> AStarSearch::FindPath(IDataSource* dataSource, Position begin, Position end, double stepLength)
+vector<Position> AStarSearch::FindPath(IDataSource* dataSource, Position begin, Position end, double stepLength, SnapShotFunc snapshot)
 {
 	vector<Position> neighbours = GetNeighbours(stepLength);
-	unordered_set<Position, PositionHash> closedCells;
-	multiset<Node*, NodeCompare> openCells;
 
-	auto current = GetNode(begin, end);
+	current = GetNode(begin, end);
 	current->moveCost = 0;
 	openCells.insert(current);
-	
+	current->kind = CellKind::Open;
+	TakeSnapShot(snapshot);
 	while (!openCells.empty())
 	{
 		current = *openCells.begin();
@@ -76,6 +77,7 @@ vector<Position> AStarSearch::FindPath(IDataSource* dataSource, Position begin, 
 			break;
 		}
 		closedCells.insert(current->pos);
+		current->kind = CellKind::Closed;
 	
 		for (auto pos : neighbours)
 		{
@@ -88,19 +90,25 @@ vector<Position> AStarSearch::FindPath(IDataSource* dataSource, Position begin, 
 				continue;
 			auto neighbourNode = GetNode(neighbour, end);			
 
-			double moveCost = current->moveCost + Distance(current->pos, neighbourNode->pos);
+			double moveCost = current->moveCost + (stepLength > 1.6 ? 1 : Distance(current->pos, neighbourNode->pos));
 			if (moveCost < neighbourNode->moveCost)
 			{
-				auto it = openCells.find(neighbourNode);
-				if (it != openCells.end())
+				auto itPair = openCells.equal_range(neighbourNode);
+				for (auto it = itPair.first; it != itPair.second; ++it)
 				{
-					openCells.erase(it);
+					if ((*it)->pos == neighbourNode->pos)
+					{
+						openCells.erase(it);
+						break;
+					}
 				}
 				neighbourNode->moveCost = moveCost;
 				neighbourNode->parent = current;
+				neighbourNode->kind = CellKind::Open;
 				openCells.insert(neighbourNode);
 			}
 		}
+		TakeSnapShot(snapshot);
 
 	}
 	vector<Position> path;
@@ -109,6 +117,7 @@ vector<Position> AStarSearch::FindPath(IDataSource* dataSource, Position begin, 
 		path.push_back(current->pos);
 		current = current->parent;
 	}
+	//TakeSnapShot(snapshot);
 	return path;
 	
 }

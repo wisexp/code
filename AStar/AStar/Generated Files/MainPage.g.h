@@ -7,6 +7,18 @@
 //------------------------------------------------------------------------------
 
 
+namespace Windows {
+    namespace UI {
+        namespace Xaml {
+            namespace Controls {
+                ref class Grid;
+                ref class TextBox;
+                ref class Button;
+                ref class TextBlock;
+            }
+        }
+    }
+}
 
 namespace AStar
 {
@@ -23,6 +35,16 @@ namespace AStar
     private:
         bool _contentLoaded;
     
+        private: ::Windows::UI::Xaml::Controls::Grid^ grid;
+        private: ::Windows::UI::Xaml::Controls::TextBox^ xRow;
+        private: ::Windows::UI::Xaml::Controls::TextBox^ xCol;
+        private: ::Windows::UI::Xaml::Controls::TextBox^ xStart;
+        private: ::Windows::UI::Xaml::Controls::TextBox^ xEnd;
+        private: ::Windows::UI::Xaml::Controls::TextBox^ xStep;
+        private: ::Windows::UI::Xaml::Controls::Button^ xInitialize;
+        private: ::Windows::UI::Xaml::Controls::Button^ xCompute;
+        private: ::Windows::UI::Xaml::Controls::Button^ xReset;
+        private: ::Windows::UI::Xaml::Controls::TextBlock^ xLog;
     };
 }
 

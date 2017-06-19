@@ -6,6 +6,7 @@
 #pragma once
 
 #include "App.g.h"
+#include "CustomControl.h"
 
 namespace AStar
 {

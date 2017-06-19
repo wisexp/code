@@ -17,5 +17,11 @@ namespace AStar
 	public:
 		MainPage();
 
+	private:
+		void grid_KeyDown(Platform::Object^ sender, Windows::UI::Xaml::Input::KeyRoutedEventArgs^ e);
+		void xInitialize_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void xCompute_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void xReset_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void OnTapped(Platform::Object ^sender, Windows::UI::Xaml::Input::TappedRoutedEventArgs ^e);
 	};
 }
