@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "353 Design Snake Game", "353 Design Snake Game\353 Design Snake Game\353 Design Snake Game.vcxproj", "{49ECDC3C-63A4-485C-9CCF-83B8B3B2BAFC}"
 EndProject
@@ -38,6 +38,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "314 Binary Tree Vertical Order Traversal", "314 Binary Tree Vertical Order Traversal\314 Binary Tree Vertical Order Traversal.vcxproj", "{8CA29C21-EF15-42F6-9354-B756AC82DE90}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "273 Integer to English Words", "273 Integer to English Words\273 Integer to English Words.vcxproj", "{5482465F-B85F-4D00-A848-3CD6E38B5B21}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "898 Bitwise ORs of Subarrays", "898 Bitwise ORs of Subarrays\898 Bitwise ORs of Subarrays.vcxproj", "{CF089F01-F70C-4F42-B62A-482514C7D071}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "900 RLE Iterator", "900 RLE Iterator\900 RLE Iterator.vcxproj", "{E2609B82-AEA9-46C6-896A-7BB148E27B2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -229,8 +233,31 @@ Global
 		{5482465F-B85F-4D00-A848-3CD6E38B5B21}.Release|x64.Build.0 = Release|x64
 		{5482465F-B85F-4D00-A848-3CD6E38B5B21}.Release|x86.ActiveCfg = Release|Win32
 		{5482465F-B85F-4D00-A848-3CD6E38B5B21}.Release|x86.Build.0 = Release|Win32
+		{CF089F01-F70C-4F42-B62A-482514C7D071}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{CF089F01-F70C-4F42-B62A-482514C7D071}.Debug|x64.ActiveCfg = Debug|x64
+		{CF089F01-F70C-4F42-B62A-482514C7D071}.Debug|x64.Build.0 = Debug|x64
+		{CF089F01-F70C-4F42-B62A-482514C7D071}.Debug|x86.ActiveCfg = Debug|Win32
+		{CF089F01-F70C-4F42-B62A-482514C7D071}.Debug|x86.Build.0 = Debug|Win32
+		{CF089F01-F70C-4F42-B62A-482514C7D071}.Release|Any CPU.ActiveCfg = Release|Win32
+		{CF089F01-F70C-4F42-B62A-482514C7D071}.Release|x64.ActiveCfg = Release|x64
+		{CF089F01-F70C-4F42-B62A-482514C7D071}.Release|x64.Build.0 = Release|x64
+		{CF089F01-F70C-4F42-B62A-482514C7D071}.Release|x86.ActiveCfg = Release|Win32
+		{CF089F01-F70C-4F42-B62A-482514C7D071}.Release|x86.Build.0 = Release|Win32
+		{E2609B82-AEA9-46C6-896A-7BB148E27B2F}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{E2609B82-AEA9-46C6-896A-7BB148E27B2F}.Debug|x64.ActiveCfg = Debug|x64
+		{E2609B82-AEA9-46C6-896A-7BB148E27B2F}.Debug|x64.Build.0 = Debug|x64
+		{E2609B82-AEA9-46C6-896A-7BB148E27B2F}.Debug|x86.ActiveCfg = Debug|Win32
+		{E2609B82-AEA9-46C6-896A-7BB148E27B2F}.Debug|x86.Build.0 = Debug|Win32
+		{E2609B82-AEA9-46C6-896A-7BB148E27B2F}.Release|Any CPU.ActiveCfg = Release|Win32
+		{E2609B82-AEA9-46C6-896A-7BB148E27B2F}.Release|x64.ActiveCfg = Release|x64
+		{E2609B82-AEA9-46C6-896A-7BB148E27B2F}.Release|x64.Build.0 = Release|x64
+		{E2609B82-AEA9-46C6-896A-7BB148E27B2F}.Release|x86.ActiveCfg = Release|Win32
+		{E2609B82-AEA9-46C6-896A-7BB148E27B2F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0892238-0D57-419E-9DC4-FB0DFA0DB858}
 	EndGlobalSection
 EndGlobal
