@@ -45,6 +45,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "900 RLE Iterator", "900 RLE
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "907. Sum of Subarray Minimums", "907. Sum of Subarray Minimums\907. Sum of Subarray Minimums.vcxproj", "{0354CA72-0AAC-400B-8563-112B89B6AF7F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "909. Snakes and Ladders", "909. Snakes and Ladders\909. Snakes and Ladders.vcxproj", "{F8119203-8DA3-4C2D-877D-3954C849AF8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -265,6 +267,16 @@ Global
 		{0354CA72-0AAC-400B-8563-112B89B6AF7F}.Release|x64.Build.0 = Release|x64
 		{0354CA72-0AAC-400B-8563-112B89B6AF7F}.Release|x86.ActiveCfg = Release|Win32
 		{0354CA72-0AAC-400B-8563-112B89B6AF7F}.Release|x86.Build.0 = Release|Win32
+		{F8119203-8DA3-4C2D-877D-3954C849AF8D}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{F8119203-8DA3-4C2D-877D-3954C849AF8D}.Debug|x64.ActiveCfg = Debug|x64
+		{F8119203-8DA3-4C2D-877D-3954C849AF8D}.Debug|x64.Build.0 = Debug|x64
+		{F8119203-8DA3-4C2D-877D-3954C849AF8D}.Debug|x86.ActiveCfg = Debug|Win32
+		{F8119203-8DA3-4C2D-877D-3954C849AF8D}.Debug|x86.Build.0 = Debug|Win32
+		{F8119203-8DA3-4C2D-877D-3954C849AF8D}.Release|Any CPU.ActiveCfg = Release|Win32
+		{F8119203-8DA3-4C2D-877D-3954C849AF8D}.Release|x64.ActiveCfg = Release|x64
+		{F8119203-8DA3-4C2D-877D-3954C849AF8D}.Release|x64.Build.0 = Release|x64
+		{F8119203-8DA3-4C2D-877D-3954C849AF8D}.Release|x86.ActiveCfg = Release|Win32
+		{F8119203-8DA3-4C2D-877D-3954C849AF8D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
